@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  web:
+    build: ./web
+    container_name: web
+    ports:
+      - "8080:80"
+    depends_on:
+      - "dns"
+
+  dns:
+    build: ./dns
+    container_name: ns1
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    volumes:
+      - ./dns/primary:/etc/bind

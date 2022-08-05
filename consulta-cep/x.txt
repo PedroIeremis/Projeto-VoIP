@@ -1,0 +1,12 @@
+{
+  "cep": "59052-800",
+  "logradouro": "Rua dos Pajeús",
+  "complemento": "de 1955/1956 ao fim",
+  "bairro": "Dix-Sept Rosado",
+  "localidade": "Natal",
+  "uf": "RN",
+  "ibge": "2408102",
+  "gia": "",
+  "ddd": "84",
+  "siafi": "1761"
+}
