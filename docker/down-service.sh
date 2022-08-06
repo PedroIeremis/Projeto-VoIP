@@ -1,9 +1,7 @@
 #!/bin/bash
 
-docker-compose down
-
+docker rm -f ns1
 docker rm -f web
-dokcer rm -f ns1
 
-docker rmi -f docker_web
-docker rmi -f docker_dns
+docker rmi -f img-dns
+docker rmi -f nx

@@ -11,9 +11,9 @@ $TTL	604800
 ;
 @	IN	NS	pedro.br.
 @	IN	NS	ns1.pedro.br.
-@	IN	A	10.24.11.25
+@	IN	A	192.168.0.12
 
 @	IN	A	127.0.0.1
 ;@	IN	AAAA	::1
 
-ns1	IN	A	10.24.11.25
+ns1	IN	A	192.168.0.12
