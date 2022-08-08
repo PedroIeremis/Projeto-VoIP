@@ -1,5 +1,5 @@
 #!/bin/python3
 import os
 
-os.system('./prog-service.py')
-os.system('./teste.sh')
+os.system('./reqs-service.py')
+os.system('./filtragem.sh')
