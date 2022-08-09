@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#echo "CEP> "
-#read cep
-#curl -s 'viacep.com.br/ws/59052800/json/' > x.txt
-
 echo > process.txt
 cat x.txt | tr -d "}" | tr -d "{" | tr -d '"' | tr ',' '.' > x2.txt
 
@@ -28,13 +24,9 @@ elif [ $x == 'uf:' ];then
 elif [ $x == 'ddd:' ];then
         x6=$(echo $x | sed 's/:/, corresponde a/g')
 	echo $x6 $y >> process.txt
-
 fi
 
 done < x2.txt
 
-echo "ARQUIVO FINAL: "
-cat process.txt
-echo "----------------------------------"
 rm x.txt
 rm x2.txt
