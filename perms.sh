@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mv Projeto-VoIP/* .
+mv * ..
 
 chown asterisk:asterisk *
 

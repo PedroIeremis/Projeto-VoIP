@@ -6,13 +6,14 @@ from playsound import playsound
 init3 = input('CEP> ')
 
 subs = "http://viacep.com.br/ws/SUBSTITUIR/json"
-res = subs.replace("SUBSTITUIR', f'{init3}")
+res = subs.replace('SUBSTITUIR', f'{init3}')
 reqs = requests.get(res).content
-subprocess.run(['./filtragem.sh'])
 
 with open('x.txt', 'wb') as arq:
     arq.write(reqs)
 
+subprocess.run(['./filtragem.sh'])
+    
 with open('process.txt', 'r') as arq:
     conteudo = arq.read()
     formatacao = 'audiocep.mp3'
@@ -22,4 +23,4 @@ with open('process.txt', 'r') as arq:
     var.save(formatacao)
 
     time.sleep(1)
-    playsound(formatacao)
+#    playsound(formatacao)
