@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from gtts import gTTS 
 from asterisk.agi import *
 import os, requests, time
@@ -51,7 +52,7 @@ elif init == '2':
         var.save(saida)
         time.sleep(0.3)
         os.system('./move.sh')
-        time.sleep(0.1)
+        time.sleep(0.3)
         agi.stream_file('audiocep')
         time.sleep(0.2)
         agi.stream_file('processofinishfemale')
