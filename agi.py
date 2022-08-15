@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+from operator import sub
 from gtts import gTTS
 from asterisk.agi import *
-import requests, time, os
+import requests, time, subprocess
 
 agi = AGI()
 agi.answer()
@@ -14,16 +15,16 @@ if init == '1':
 
     if init2 == '1':
         agi.stream_file('gerandomale')
-        os.system('./up-service.sh')
-        time.sleep(2)
+        subprocess.run(['/usr/share/asterisk/agi-bin/up-service.sh'])
+        #time.sleep(1)
         agi.stream_file('processofinishmale')
         agi.stream_file('beep')
         agi.hangup()
 
     elif init2 == '2':
         agi.stream_file('gerandomale')
-        os.system('./down-docker.sh')
-        time.sleep(2)
+        subprocess.run(['/usr/share/asterisk/agi-bin/down-service.sh'])
+        #time.sleep(1)
         agi.stream_file('processofinishmale')
         agi.stream_file('beep')
         agi.hangup()
@@ -41,9 +42,9 @@ elif init == '2':
     reqs = requests.get(res).content
     agi.stream_file('gerandofemale')
 
-    with open('x.txt', 'wb') as arq:
+    with open('/usr/share/asterisk/agi-bin/x.txt', 'wb') as arq:
         arq.write(reqs)
-    os.system('./filtragem.sh')
+    subprocess.run(['/usr/share/asterisk/agi-bin/filtragem.sh'])
 
     with open('process.txt', 'r') as arq:
         conteudo = arq.read()
@@ -53,14 +54,14 @@ elif init == '2':
         var = gTTS(text=conteudo, lang=lingua)
         var.save(saida)
         time.sleep(0.3)
-        os.system('./move.sh')
+        subprocess.run(['rm', '/usr/share/asterisk/agi-bin/move.sh'])
         time.sleep(0.3)
         agi.stream_file('audiocep')
         time.sleep(0.2)
         agi.stream_file('processofinishfemale')
         agi.stream_file('beep')
         agi.hangup()
-        os.system('rm /usr/share/asterisk/sounds/audio.gsm')
+        subprocess.run(['rm', '/usr/share/asterisk/sounds/audiocep.gsm'])
 
 else:
     agi.stream_file('invalidamale')
