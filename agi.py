@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from gtts import gTTS
 from asterisk.agi import *
-import subprocess, requests, time, os
+import requests, time, os
 
 agi = AGI()
 agi.answer()

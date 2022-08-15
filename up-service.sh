@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd docker/web
+cd docker
 docker build -t nx .
 docker run -d --name web -p 8080:80 nx
