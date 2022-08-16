@@ -16,6 +16,8 @@ if init == '1':
     if init2 == '1':
         agi.stream_file('gerandomale')
         subprocess.run(['/usr/share/asterisk/agi-bin/up-service.sh'])
+        agi.verbose()
+        agi.wait_for_digit(10000)
         #time.sleep(1)
         agi.stream_file('processofinishmale')
         agi.stream_file('beep')
@@ -46,18 +48,18 @@ elif init == '2':
         arq.write(reqs)
     subprocess.run(['/usr/share/asterisk/agi-bin/filtragem.sh'])
 
-    with open('process.txt', 'r') as arq:
+    with open('/usr/share/asterisk/agi-bin/process.txt', 'r') as arq:
         conteudo = arq.read()
         saida = 'audiocep.mp3'
         lingua = 'pt-br'
 
         var = gTTS(text=conteudo, lang=lingua)
         var.save(saida)
-        time.sleep(0.3)
-        subprocess.run(['rm', '/usr/share/asterisk/agi-bin/move.sh'])
-        time.sleep(0.3)
+        #time.sleep(0.3)
+        subprocess.run(['/usr/share/asterisk/agi-bin/move.sh'])
+        #time.sleep(0.3)
         agi.stream_file('audiocep')
-        time.sleep(0.2)
+        #time.sleep(0.2)
         agi.stream_file('processofinishfemale')
         agi.stream_file('beep')
         agi.hangup()

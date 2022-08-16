@@ -31,4 +31,4 @@ with open('process.txt', 'r') as arq:
     #agi.stream_file('processofinishfemale')
     #agi.stream_file('beep')
     #agi.hangup()
-    os.system('rm /usr/share/asterisk/sounds/audio.gsm')
+    os.system('rm /usr/share/asterisk/sounds/audiocep.gsm')
