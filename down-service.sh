@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker rm -f web
-docker rmi -f nx
-docker rmi -f nginx
+docker rm -f web > /dev/null
+docker rmi -f nx > /dev/null
+docker rmi -f nginx > /dev/null

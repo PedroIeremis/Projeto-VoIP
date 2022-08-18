@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from gtts import gTTS
 from asterisk.agi import *
-import requests, time, subprocess
+import requests, subprocess
 
 agi = AGI()
 agi.answer()
@@ -16,12 +16,11 @@ if init == '1':
         subprocess.run(['/usr/share/asterisk/agi-bin/up-service.sh'])
 
         agi.verbose('Passou do Script up-service.sh')
-        #agi.wait_for_digit(10000)
         agi.stream_file('processofinishmale')
         agi.verbose('Passou do audio de finalizar')
         agi.stream_file('beep')
         agi.hangup()
-
+        subprocess.run()
     elif init2 == '2':
         agi.stream_file('gerandomale')
         subprocess.run(['/usr/share/asterisk/agi-bin/down-service.sh'])
