@@ -46,7 +46,7 @@ elif init == '2':
 
     with open('/usr/share/asterisk/agi-bin/x.txt', 'wb') as arq:
         arq.write(reqs)
-    subprocess.run(['/usr/share/asterisk/agi-bin/filtragem.sh'])
+    subprocess.run('/usr/share/asterisk/agi-bin/filtragem.sh 2>/dev/null', shell=True)
     agi.verbose('passou do filtragem')
 
     with open('/usr/share/asterisk/agi-bin/process.txt', 'r') as arq:
