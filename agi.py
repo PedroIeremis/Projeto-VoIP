@@ -51,7 +51,7 @@ elif init == '2':
 
     with open('/usr/share/asterisk/agi-bin/process.txt', 'r') as arq:
         conteudo = arq.read()
-        saida = 'audiocep.mp3'
+        saida = '/usr/share/asterisk/agi-bin/audiocep.mp3'
         lingua = 'pt-br'
 
         var = gTTS(text=conteudo, lang=lingua)
